@@ -7,8 +7,7 @@ using UnityEngine.Events;
 public class Player : MonoBehaviour
 {
     [SerializeField] private int _maxHealth;
-    [SerializeField] private HealthBar _healthBar;
-    [SerializeField] private UnityEvent<int> _setHealthBar;
+    [SerializeField] private UnityEvent<int> ChangedHelth;
 
     private int _currentHealth;
     private int _minHealth;
@@ -32,7 +31,7 @@ public class Player : MonoBehaviour
             _currentHealth -= damage;
         }
 
-        _setHealthBar.Invoke(_currentHealth);
+        ChangedHelth.Invoke(_currentHealth);
     }
 
     public void Heal(int health)
@@ -40,7 +39,7 @@ public class Player : MonoBehaviour
         if ((_currentHealth + health) <= _maxHealth)
         {
             _currentHealth += health;
-            _setHealthBar.Invoke(_currentHealth);
+            ChangedHelth.Invoke(_currentHealth);
         }
     }
 }

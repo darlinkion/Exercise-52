@@ -777,8 +777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
-  _healthBar: {fileID: 1079166518}
-  _setHealthBar:
+  ChangedHelth:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1079166518}

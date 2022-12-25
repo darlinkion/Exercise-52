@@ -12,13 +12,7 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private Player _player;
 
     private WaitForFixedUpdate _waitForFixedUpdate;
-    private float _deltaHealth;
-    
-    public void SetHealth(int health)
-    {
-        StopCoroutine(MoveScale(health));
-        StartCoroutine(MoveScale(health));
-    }
+    private float _deltaHealth;  
 
     private void Start()
     {
@@ -28,6 +22,12 @@ public class HealthBar : MonoBehaviour
         _deltaHealth = 1f;
 
         _gradient.Evaluate(_slider.normalizedValue);
+    }
+
+    public void SetHealth(int health)
+    {
+        StopCoroutine(MoveScale(health));
+        StartCoroutine(MoveScale(health));
     }
 
     private IEnumerator MoveScale(int health)
